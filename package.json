@@ -1,0 +1,24 @@
+{
+  "name": "search-engine",
+  "version": "1.0.0",
+  "description": "A search engine built from scratch",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kaushik2107-bit/search-engine.git"
+  },
+  "keywords": [
+    "search",
+    "engine"
+  ],
+  "author": "Kaushik Bhowmick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaushik2107-bit/search-engine/issues"
+  },
+  "homepage": "https://github.com/kaushik2107-bit/search-engine#readme"
+}
