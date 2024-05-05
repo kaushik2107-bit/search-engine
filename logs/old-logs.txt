@@ -1,3 +1,8 @@
-[4/5/2024, 5:24:04 pm] [WARNING]: URL already visited
-[4/5/2024, 5:24:04 pm] [DONE]: Crawling done
-
+[4/5/2024, 7:25:41 pm] [INFO]: Crawling: https://en.wikipedia.org/wiki/Web_crawler
+[4/5/2024, 7:26:55 pm] [INFO]: Website added to database: 1
+[4/5/2024, 7:26:56 pm] [INFO]: Keywords added to database: 1826
+[4/5/2024, 7:26:56 pm] [INFO]: References inserted to database
+[4/5/2024, 7:26:57 pm] [INFO]: JUMPING to https://en.wikipedia.org/wiki/Web_crawler
+[4/5/2024, 7:27:06 pm] [INFO]: Edges added to database: 1
+[4/5/2024, 7:27:06 pm] [WARNING]: URL already visited
+[4/5/2024, 7:27:06 pm] [INFO]: JUMPING to https://en.wikipedia.org/wiki/Main_Page

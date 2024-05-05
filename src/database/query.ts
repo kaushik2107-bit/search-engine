@@ -100,7 +100,7 @@ export async function AddEdges(url1: string, url2: string) {
     
         const result = await pool.query(queryText, values);
         edges += 1;
-        console.log(chalk.cyan(`[INFO]`) + `: Website added to database: ${result.rowCount}`);
+        console.log(chalk.cyan(`[INFO]`) + `: Edges added to database: ${result.rowCount}`);
     } catch (e) {
         console.log(chalk.red(`[ERROR]`) + `: Error adding to database: ${e}`)
     }

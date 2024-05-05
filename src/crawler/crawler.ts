@@ -23,14 +23,16 @@ export function delay(ms: number) {
 
 async function crawlSite(url: string, rank: number, depth: number, parentUrl?: string): Promise<boolean> {
     if (await isCrawled(url)) {
+        if (parentUrl) {
+            await AddEdges(parentUrl, url);
+        }
         console.log(chalk.yellow(`[WARNING]`) + ": URL already visited");
         return false;
     }
-
     
-    console.log(chalk.cyan(`[INFO]`) + ": Rate limiting");
+    // console.log(chalk.cyan(`[INFO]`) + ": Rate limiting");
     await delay(Math.floor(Math.random() * (10 - 3 + 1)) + 3);
-    console.log(chalk.cyan(`[INFO]`) + ": Rate limiting over");
+    // console.log(chalk.cyan(`[INFO]`) + ": Rate limiting over");
 
     if (depth <= 0) {
         parentUrl ? await AddEdgesToCrawl(parentUrl, url) : "";
@@ -71,7 +73,10 @@ async function crawlSite(url: string, rank: number, depth: number, parentUrl?: s
     })
 
     // 3. check if permitted
-    if (!validUrl.isUri("")) return false;
+    if (!validUrl.isUri(url)) {
+        console.log(chalk.yellow(`[YELLOW]`) + `: Invalid URL given ${url}`);
+        return false;
+    }
     const domain = fetchDomain(url);
     const robotsUrl = "https://" + domain + "/robots.txt";
     let forbidden = false;
@@ -89,8 +94,8 @@ async function crawlSite(url: string, rank: number, depth: number, parentUrl?: s
     }
 
     if (forbidden) {
-        console.log(chalk.red(`[WARNING]`) + `: Do not have permission to crawl ${url}`);
-        return false;
+        // console.log(chalk.yellow(`[WARNING]`) + `: Do not have permission to crawl ${url}`);
+        // return false;
     }
 
     // 4. Start crawling
@@ -170,7 +175,9 @@ async function crawlSite(url: string, rank: number, depth: number, parentUrl?: s
     
     // 10. Finding links on the page and crawling those links
     let links = await page.$$eval('a', as => as.map(a => a.href.replace(/\/$/, '')));
-    links = links.filter(li => li != url && !globalSetUris.has(li) && validUrl.isUri(li));
+    links = links.filter(li => li != url && validUrl.isUri(li));
+    links = links.map(ll => ll.split(/[?#]/)[0]);
+    links = [...new Set(links)];
     for (const link of links) {
         console.log(chalk.cyan(`[INFO]`) + `: JUMPING to ${link}`)
         let _ = await crawlSite(link, rank, depth-1, url);
