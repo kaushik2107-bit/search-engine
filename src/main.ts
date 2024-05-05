@@ -1,6 +1,7 @@
 import { crawler } from "./crawler/crawler"
 import fs from "fs";
 import util from "util"; 
+import applyPagerank from "./pagerank/pr";
 
 const pattern = [
     '[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
@@ -34,7 +35,9 @@ console.log = function(mess) {
 }
 
 async function main() {
-    await crawler();
-    console.log("[DONE]: Crawling done\n");
+    // await crawler();
+    // console.log("[DONE]: Crawling done\n");
+
+    applyPagerank();
 }
 main();
