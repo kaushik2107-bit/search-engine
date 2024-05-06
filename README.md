@@ -72,7 +72,7 @@ $$
 $$
 
 The following operation would be to divide the horizontal row by its' node outdegree. So the matrix becomes as follows:
-$$
+```math
 \begin{equation} M = 
 \begin{pmatrix}
     0 & 1 & 0 & 0  \\
@@ -81,14 +81,14 @@ $$
     0 & 0 & 1 & 0
 \end{pmatrix}
 \end{equation}
-$$
+```
 
 Now the page rank equation is 
-$$
+```math
 \begin{equation}
     P_{i+1} = M \cdot P_i \cdot d + \frac{1-d}{N} \cdot J
 \end{equation}
-$$
+```
 ```math
 \begin{align*}
     & P_{i+1} \text{ is the PageRank vector for the next iteration (\(i+1\))} \\
