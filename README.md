@@ -89,7 +89,7 @@ $$
     P_{i+1} = M \cdot P_i \cdot d + \frac{1-d}{N} \cdot J
 \end{equation}
 $$
-$$
+```math
 \begin{align*}
     & P_{i+1} \text{ is the PageRank vector for the next iteration (\(i+1\))} \\
     & P_i \text{ is the PageRank vector for the current iteration (\(i\))} \\
@@ -98,7 +98,7 @@ $$
     & N \text{ is the total number of web pages} \\
     & J \text{ is the vector of 1's}
 \end{align*}
-$$
+```
 
 Now to check for the convergence of pageranks:
 ```javascript
