@@ -60,7 +60,7 @@ Note that the directed links is row to col.
 ![alt text](image.png)
 
 The adjacency matrix would be as follows:
-$$
+```math
 \begin{equation} Adj = 
 \begin{pmatrix}
     0 & 1 & 0 & 0  \\
@@ -69,7 +69,7 @@ $$
     0 & 0 & 1 & 0
 \end{pmatrix}
 \end{equation}
-$$
+```
 
 The following operation would be to divide the horizontal row by its' node outdegree. So the matrix becomes as follows:
 ```math
