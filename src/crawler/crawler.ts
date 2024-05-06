@@ -13,7 +13,7 @@ const globalSetUris = new Set();
 export async function crawler() {
     const sites:T_SITE[] = await loader("top-1000.txt");
     for (let {url, rank} of sites) {
-        await crawlSite(url, 1, 3);
+        await crawlSite(url, 1, 2);
     }
 }
 

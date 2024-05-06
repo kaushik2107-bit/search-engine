@@ -94,7 +94,7 @@ class Graph {
         if (initialPR) P = initialPR;
                
         let iteration = 0;
-        while (iteration <= 1) {
+        while (iteration <= 1e6) {
             let P_dash = matrix_matrix_add(matrix_const_mult(matrix_vector_mult(M, P), d), J);
             // console.log(normalize(P_dash));
             if (is_similar(P, P_dash, 0.0001)) {

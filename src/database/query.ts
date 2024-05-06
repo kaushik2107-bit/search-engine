@@ -42,7 +42,7 @@ export async function AddKeyWords(_data: string[]) {
         let data = Array.from(new Set(_data));
         const values = data.map((word) => `('${word}', 1)`).join(', ');
         const queryText = 'INSERT INTO keywords (word, unique_count) values ' + values 
-            + ' ON CONFLICT (word) DO UPDATE SET unique_count = EXCLUDED.unique_count + 1';
+            + ' ON CONFLICT (word) DO UPDATE SET unique_count = keywords.unique_count + 1';
         
         const result = await pool.query(queryText);
         keywords += 1;

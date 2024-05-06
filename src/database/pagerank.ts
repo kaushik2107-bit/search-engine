@@ -1,4 +1,3 @@
-import { QueryResult } from "pg";
 import { pool } from "./connect";
 import chalk from "chalk";
 import { T_EDGES, T_NODES } from "../pagerank/pr";

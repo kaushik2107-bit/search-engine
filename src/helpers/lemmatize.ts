@@ -17,6 +17,7 @@ async function loadLemmatizedMap() {
 
 export default async function lemmatize(word: string): Promise<string> {
     if (!lemmatizedMap) await loadLemmatizedMap();
+    word = word.toLowerCase();
     if (rootWords.has(word)) return word;
     else if ((lemmatizedMap as any)[word]) {
         return (lemmatizedMap as any)[word];

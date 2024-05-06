@@ -2,6 +2,7 @@ import { crawler } from "./crawler/crawler"
 import fs from "fs";
 import util from "util"; 
 import applyPagerank from "./pagerank/pr";
+import searchQuery from "./searcher/search";
 
 const pattern = [
     '[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
@@ -38,6 +39,10 @@ async function main() {
     // await crawler();
     // console.log("[DONE]: Crawling done\n");
 
-    applyPagerank();
+    // await applyPagerank();
+
+    const query = "a the";
+    const scores = await searchQuery(query);
+    console.log(scores);
 }
 main();
