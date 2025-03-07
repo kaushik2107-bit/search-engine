@@ -26,6 +26,7 @@
     "@flyyer/robotstxt": "^3.0.1",
     "blessed": "^0.1.81",
     "chalk": "^4.1.2",
+    "dotenv": "^16.4.7",
     "express": "^4.19.2",
     "lemmatizer": "^0.0.1",
     "pg": "^8.11.5",
