@@ -1,7 +1,5 @@
-import { crawler } from "./crawler/crawler"
 import fs from "fs";
 import util from "util"; 
-import applyPagerank from "./pagerank/pr";
 import searchQuery from "./searcher/search";
 
 const pattern = [
@@ -36,11 +34,6 @@ console.log = function(mess) {
 }
 
 async function main() {
-    // await crawler();
-    // console.log("[DONE]: Crawling done\n");
-
-    // await applyPagerank();
-
     const query = "a the";
     const scores = await searchQuery(query);
     console.log(scores);
